@@ -24,22 +24,8 @@ const LecturesInfo: React.FC<LecturesInfoProps> = ({ navigation }) => {
       <View
         style={{
           padding: 20,
-          paddingTop: 10,
         }}
       >
-        <View
-          style={{
-            alignSelf: 'flex-end',
-            marginBottom: 10,
-          }}
-        >
-          <Button
-            title="닫기"
-            onPress={() => {
-              navigation.goBack()
-            }}
-          />
-        </View>
         <Text>
           {lecture.year}년 {lecture.semester}학기 {lecture.campus}캠퍼스
         </Text>
