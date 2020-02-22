@@ -12,6 +12,8 @@ import {
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import axios from 'axios'
 import { LecturesScreenNavigationProp } from './LecturesScreen'
+import Header from '@/components/Header'
+import Scaffold from '@/components/Scaffold'
 
 type LecturesHomeProps = {
   navigation: LecturesScreenNavigationProp
@@ -50,20 +52,21 @@ const LecturesHome: React.FC<LecturesHomeProps> = ({ navigation }) => {
   }
 
   return (
-    <ScrollView
-      style={{
-        backgroundColor: '#f5f6f8',
-      }}
-      onScroll={({ nativeEvent }) => {
-        const { layoutMeasurement, contentOffset, contentSize } = nativeEvent
-        const isReachEnd =
-          layoutMeasurement.height + contentOffset.y >= contentSize.height
-        if (isReachEnd && !isMoreLoading) {
-          loadMore()
-        }
-      }}
-      scrollEventThrottle={400}
-    >
+    // <ScrollView
+    //   style={{
+    //     backgroundColor: '#f5f6f8',
+    //   }}
+    //   onScroll={({ nativeEvent }) => {
+    //     const { layoutMeasurement, contentOffset, contentSize } = nativeEvent
+    //     const isReachEnd =
+    //       layoutMeasurement.height + contentOffset.y >= contentSize.height
+    //     if (isReachEnd && !isMoreLoading) {
+    //       loadMore()
+    //     }
+    //   }}
+    //   scrollEventThrottle={400}
+    // >
+    <Scaffold headerTitle="Lectures">
       <ActivityIndicator
         animating={isFirstLoading}
         style={{
@@ -72,17 +75,6 @@ const LecturesHome: React.FC<LecturesHomeProps> = ({ navigation }) => {
           top: Dimensions.get('screen').height / 2 - 100,
         }}
       />
-      <Text
-        style={{
-          paddingTop: getStatusBarHeight() + 50,
-          paddingLeft: 20 + 5,
-          fontSize: 40,
-          fontWeight: '700',
-          marginBottom: 15,
-        }}
-      >
-        Lectures
-      </Text>
       <TextInput
         placeholder="Search"
         style={{
@@ -151,7 +143,8 @@ const LecturesHome: React.FC<LecturesHomeProps> = ({ navigation }) => {
           marginBottom: 20,
         }}
       />
-    </ScrollView>
+    </Scaffold>
+    // </ScrollView>
   )
 }
 
