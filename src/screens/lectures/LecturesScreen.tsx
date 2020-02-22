@@ -25,7 +25,7 @@ const LecturesScreen: React.FC = () => {
   return (
     <LecturesScreenStack.Navigator
       screenOptions={{
-        stackPresentation: 'modal',
+        stackPresentation: 'push',
       }}
     >
       <LecturesScreenStack.Screen
@@ -35,7 +35,13 @@ const LecturesScreen: React.FC = () => {
           headerShown: false,
         }}
       />
-      <LecturesScreenStack.Screen name="Info" component={LecturesInfo} />
+      <LecturesScreenStack.Screen
+        name="Info"
+        component={LecturesInfo}
+        options={{
+          headerBackTitle: 'Lectures',
+        }}
+      />
     </LecturesScreenStack.Navigator>
   )
 }
