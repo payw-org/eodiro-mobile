@@ -29,7 +29,7 @@ const ScaffoldBody: React.FC<ScaffoldBodyProps> = ({
           top: 0,
           left: 0,
           width: '100%',
-          height: 65,
+          height: getStatusBarHeight() + 60,
           borderBottomWidth: 1,
           borderBottomColor: '#00000020',
         }}
