@@ -1,26 +1,23 @@
-import React, { useState, useEffect } from 'react'
 import {
-  ScrollView,
-  View,
-  Text,
   ActivityIndicator,
-  TouchableHighlight,
   Dimensions,
-  TouchableOpacity,
+  ScrollView,
+  Text,
   TextInput,
+  TouchableOpacity,
+  View,
 } from 'react-native'
-import { getStatusBarHeight } from 'react-native-iphone-x-helper'
-import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+
 import { LecturesScreenNavigationProp } from './LecturesScreen'
-import Header from '@/components/Header'
-import Scaffold from '@/components/Scaffold'
+import axios from 'axios'
 import dayjs from 'dayjs'
 import getSemester from '@/modules/get-semester'
-import getState from '@/modules/get-state'
 
 type LecturesHomeProps = {
   navigation: LecturesScreenNavigationProp
 }
+
 const LecturesHome: React.FC<LecturesHomeProps> = ({ navigation }) => {
   const [lectures, setLectures] = useState([])
   const [isFirstLoading, setIsFirstLoading] = useState(true)
@@ -45,7 +42,7 @@ const LecturesHome: React.FC<LecturesHomeProps> = ({ navigation }) => {
     }
 
     setIsMoreLoading(true)
-    console.log('set isMoreLoading true')
+
     const now = dayjs()
     const year = now.year()
     const semester = getSemester()
@@ -82,6 +79,9 @@ const LecturesHome: React.FC<LecturesHomeProps> = ({ navigation }) => {
         }}
         scrollEventThrottle={400}
         stickyHeaderIndices={[0]}
+        scrollIndicatorInsets={{
+          top: 50,
+        }}
       >
         <View
           style={{
