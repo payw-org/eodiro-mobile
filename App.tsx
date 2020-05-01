@@ -1,11 +1,11 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { Ionicons } from '@expo/vector-icons'
+import LecturesScreen from '@/screens/lectures/LecturesScreen'
 import { NavigationContainer } from '@react-navigation/native'
+import React from 'react'
+import { StyleSheet } from 'react-native'
+import VacantScreen from '@/screens/vacant/VacantScreen'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { enableScreens } from 'react-native-screens'
-import LecturesScreen from '@/screens/lectures/LecturesScreen'
-import { Ionicons } from '@expo/vector-icons'
-import SquareScreen from '@/screens/square/SquareScreen'
 
 enableScreens()
 
@@ -28,7 +28,7 @@ export default function App() {
       >
         <Tab.Screen
           name="Vacant"
-          component={LecturesScreen}
+          component={VacantScreen}
           options={{
             title: '빈 강의실',
             tabBarIcon: (props) => {
@@ -58,23 +58,6 @@ export default function App() {
             },
           }}
         />
-        <Tab.Screen
-          name="Square"
-          component={SquareScreen}
-          options={{
-            title: '빼빼로 광장',
-            tabBarIcon: (props) => {
-              return (
-                <Ionicons
-                  name="ios-people"
-                  size={props.size}
-                  color={props.color}
-                />
-              )
-            },
-          }}
-        />
-        {/* <Tab.Screen name="More" component={} /> */}
       </Tab.Navigator>
     </NavigationContainer>
   )
