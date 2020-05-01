@@ -1,8 +1,9 @@
-import React from 'react'
-import { View, Text, ScrollView } from 'react-native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { ScrollView, Text, View } from 'react-native'
 
-const HomeScreenStack = createNativeStackNavigator()
+import React from 'react'
+import { createStackNavigator } from '@react-navigation/stack'
+
+const HomeScreenStack = createStackNavigator()
 
 const HomeScreenComponent: React.FC = () => {
   return (
@@ -24,10 +25,6 @@ const HomeScreen: React.FC = () => {
         component={HomeScreenComponent}
         options={{
           title: 'eodiro',
-          headerLargeTitle: true,
-          headerLargeTitleStyle: {
-            fontFamily: '',
-          },
         }}
       />
     </HomeScreenStack.Navigator>
