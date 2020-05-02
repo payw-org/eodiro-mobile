@@ -50,7 +50,7 @@ export default function App() {
             tabBarIcon: (props) => {
               return (
                 <Ionicons
-                  name="ios-search"
+                  name="ios-paper"
                   size={props.size}
                   color={props.color}
                 />
