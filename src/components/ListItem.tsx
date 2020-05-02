@@ -7,12 +7,14 @@ import React from 'react'
 type ListItemProps = {
   arrow?: boolean
   onPress?: () => void
+  padding?: number
 }
 
 const ListItem: React.FC<ListItemProps> = ({
   children,
   arrow = false,
   onPress,
+  padding = 10,
 }) => {
   const Item = (
     <View
@@ -20,7 +22,7 @@ const ListItem: React.FC<ListItemProps> = ({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        paddingVertical: 15,
+        paddingVertical: padding,
       }}
     >
       <View
