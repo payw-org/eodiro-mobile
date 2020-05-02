@@ -5,4 +5,6 @@ export const EodiroStackNavigationScreenOptions: StackNavigationOptions = {
   headerTitleStyle: {
     color: '#000',
   },
+  cardShadowEnabled: false,
+  cardOverlayEnabled: true,
 }
