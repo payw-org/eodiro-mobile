@@ -3,6 +3,9 @@
  */
 
 const EodiroColors = {
+  transparent: 'transparent',
+  white: '#fff',
+  black: '#000',
   baseGray: '#808080',
   primary: '#ff3852',
   secondary: '#ff7037',
