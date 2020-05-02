@@ -113,10 +113,9 @@ const LecturesHome: React.FC<LecturesHomeProps> = ({ navigation }) => {
         <View>
           {lectures.map((lecture, index) => {
             return (
-              <>
+              <View key={index}>
                 <TouchableOpacity
                   activeOpacity={0.5}
-                  key={index}
                   onPress={() => {
                     // navigation.push('Info', {
                     //   lecture,
@@ -161,7 +160,7 @@ const LecturesHome: React.FC<LecturesHomeProps> = ({ navigation }) => {
                     marginLeft: 20,
                   }}
                 />
-              </>
+              </View>
             )
           })}
         </View>
