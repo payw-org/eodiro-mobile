@@ -1,16 +1,21 @@
+import React, { useEffect, useState } from 'react'
 import {
   StackNavigationProp,
   createStackNavigator,
 } from '@react-navigation/stack'
+import VacantLectures, { Classroom } from './VacantLectures'
 
 import { EodiroStackNavigationScreenOptions } from '@/config/stack-navigator-screen-options'
-import React from 'react'
 import VacantHome from './VacantHome'
+import VacantTimetable from './VacantTimetable'
 
 export type VacantScreenParamList = {
   Buildings: undefined
   Classrooms: {
-    building: number
+    buildingNumber: number
+  }
+  Timetable: {
+    classroom: Classroom
   }
 }
 
@@ -32,6 +37,8 @@ const VacantScreen: React.FC = () => {
           title: '빈 강의실',
         }}
       />
+      <VacantScreenStack.Screen name="Classrooms" component={VacantLectures} />
+      <VacantScreenStack.Screen name="Timetable" component={VacantTimetable} />
     </VacantScreenStack.Navigator>
   )
 }
