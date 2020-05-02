@@ -3,7 +3,6 @@ import {
   Dimensions,
   ScrollView,
   Text,
-  TextInput,
   TouchableOpacity,
   View,
 } from 'react-native'
@@ -79,15 +78,14 @@ const LecturesHome: React.FC<LecturesHomeProps> = ({ navigation }) => {
         }}
         scrollEventThrottle={400}
         stickyHeaderIndices={[0]}
-        scrollIndicatorInsets={{
-          top: 50,
-        }}
+        // scrollIndicatorInsets={{
+        //   top: 50,
+        // }}
       >
-        <View
+        {/* <View
           style={{
             backgroundColor: '#fff',
             paddingBottom: 10,
-            marginBottom: 15,
             borderBottomWidth: 1,
             borderBottomColor: '#f0f1f3',
           }}
@@ -95,7 +93,7 @@ const LecturesHome: React.FC<LecturesHomeProps> = ({ navigation }) => {
           <TextInput
             placeholder="강의명, 학과, 교수, 강의실 등"
             style={{
-              backgroundColor: '#f0f1f3',
+              backgroundColor: '#f0f0f3',
               fontSize: 17,
               marginLeft: 15,
               marginRight: 15,
@@ -103,7 +101,7 @@ const LecturesHome: React.FC<LecturesHomeProps> = ({ navigation }) => {
               padding: 10,
             }}
           />
-        </View>
+        </View> */}
         <ActivityIndicator
           animating={isFirstLoading}
           style={{
@@ -115,52 +113,55 @@ const LecturesHome: React.FC<LecturesHomeProps> = ({ navigation }) => {
         <View>
           {lectures.map((lecture, index) => {
             return (
-              <TouchableOpacity
-                activeOpacity={0.5}
-                key={index}
-                onPress={() => {
-                  // navigation.push('Info', {
-                  //   lecture,
-                  // })
-                  navigation.navigate('Info', {
-                    lecture,
-                  })
-                }}
-                style={{
-                  backgroundColor: '#fff',
-                  borderColor: '#f0f1f3',
-                  borderWidth: 1,
-                  padding: 15,
-                  marginLeft: 15,
-                  marginRight: 15,
-                  marginBottom: 15,
-                  borderRadius: 10,
-                }}
-              >
-                <Text
+              <>
+                <TouchableOpacity
+                  activeOpacity={0.5}
+                  key={index}
+                  onPress={() => {
+                    // navigation.push('Info', {
+                    //   lecture,
+                    // })
+                    navigation.navigate('Info', {
+                      lecture,
+                    })
+                  }}
                   style={{
-                    fontWeight: '700',
-                    fontSize: 17,
+                    paddingVertical: 15,
+                    paddingHorizontal: 20,
                   }}
                 >
-                  {lecture.name}
-                </Text>
-                <Text
+                  <Text
+                    style={{
+                      fontWeight: '700',
+                      fontSize: 17,
+                    }}
+                  >
+                    {lecture.name}
+                  </Text>
+                  <Text
+                    style={{
+                      marginTop: 5,
+                    }}
+                  >
+                    {lecture.professor}
+                  </Text>
+                  <Text
+                    style={{
+                      marginTop: 5,
+                      color: '#808080',
+                    }}
+                  >
+                    {lecture.schedule}
+                  </Text>
+                </TouchableOpacity>
+                <View
                   style={{
-                    marginTop: 5,
+                    height: 0.5,
+                    backgroundColor: '#e8e8e8',
+                    marginLeft: 20,
                   }}
-                >
-                  {lecture.professor}
-                </Text>
-                <Text
-                  style={{
-                    marginTop: 5,
-                    color: '#808080',
-                  }}
-                >
-                  {lecture.schedule}
-                </Text>
-              </TouchableOpacity>
+                />
+              </>
             )
           })}
         </View>

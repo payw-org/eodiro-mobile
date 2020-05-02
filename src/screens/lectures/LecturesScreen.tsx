@@ -1,14 +1,19 @@
-import React from 'react'
+import { Alert, Text, View } from 'react-native'
 import {
-  createStackNavigator,
   StackNavigationProp,
+  createStackNavigator,
 } from '@react-navigation/stack'
-import { createNativeStackNavigator } from 'react-native-screens/native-stack'
+import {
+  TouchableHighlight,
+  TouchableOpacity,
+} from 'react-native-gesture-handler'
+
+import { EodiroStackNavigationScreenOptions } from '@/config/stack-navigator-screen-options'
+import { Ionicons } from '@expo/vector-icons'
 import LecturesHome from './LecturesHome'
 import LecturesInfo from './LecturesInfo'
-import { Ionicons } from '@expo/vector-icons'
-import { View, Text } from 'react-native'
-import { EodiroStackNavigationScreenOptions } from '@/config/stack-navigator-screen-options'
+import React from 'react'
+import { createNativeStackNavigator } from 'react-native-screens/native-stack'
 
 export type LecturesScreenParamList = {
   Home: undefined
@@ -31,9 +36,20 @@ const LecturesScreen: React.FC = () => {
         component={LecturesHome}
         options={{
           title: '강의 검색',
-          headerStyle: {
-            shadowColor: 'transparent',
-          },
+          headerRight: ({ tintColor }) => (
+            <TouchableOpacity
+              style={{
+                marginRight: 10,
+                padding: 5,
+                paddingLeft: 10,
+              }}
+              onPress={() => {
+                Alert.alert('What')
+              }}
+            >
+              <Ionicons name="ios-search" size={25} color={tintColor} />
+            </TouchableOpacity>
+          ),
         }}
       />
       <LecturesScreenStack.Screen
